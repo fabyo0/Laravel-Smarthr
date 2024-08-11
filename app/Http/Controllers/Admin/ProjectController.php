@@ -3,9 +3,15 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Requests\Project\ProjectStoreRequest;
+use App\Models\Department;
+use App\Models\Designation;
 use App\Models\Project;
+use Illuminate\Contracts\View\Factory;
+use Illuminate\Contracts\View\View;
+use Illuminate\Foundation\Application;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\File;
 
 class ProjectController extends Controller
 {
@@ -40,15 +46,20 @@ class ProjectController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return Factory|View|Application|\Illuminate\View\View
      */
     public function leads()
     {
-        $title = 'project leads';
-        $projects = Project::get();
-        return view('backend.projects.leads', compact(
-            'title', 'projects'
-        ));
+        $title = 'Project Leads';
+
+        $projects = Project::with(['leader.department'])->get();
+
+        return view('backend.projects.leads', [
+            'title' => $title,
+            'projects' => $projects,
+            'departments' => Department::all(),
+            'designations' => Designation::all()
+        ]);
     }
 
     /**

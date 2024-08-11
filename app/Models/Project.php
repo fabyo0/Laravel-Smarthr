@@ -31,7 +31,7 @@ class Project extends Model
 
     public function leader()
     {
-        return $this->belongsTo(Employee::class);
+        return $this->belongsTo(Employee::class,'leader');
     }
 
     public function employee($id)

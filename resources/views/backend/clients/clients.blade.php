@@ -184,6 +184,7 @@
 	</div>
 </div>
 <!-- /Add Client Modal -->
+
 @endsection
 
 @section('scripts')
