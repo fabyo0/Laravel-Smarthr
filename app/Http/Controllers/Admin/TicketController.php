@@ -44,13 +44,12 @@ class TicketController extends Controller
             "files" => 'nullable',
             'status' => 'required'
         ]);
-        $files = null;
+        $files = [];
         if($request->hasFile('files')){
-            $files = array();
-            foreach($request->files as $file){
+            foreach($request->file('files') as $file){
                 $fileName = time().'.'.$file->getClientOriginalExtension();
                 $file->move(public_path('storage/tickets/'.$request->subject), $fileName);
-                array_push($files,$fileName);
+                $files[] = $fileName;
             }
         }
         $uuid = IdGenerator::generate(['table' => 'tickets','field'=>'tk_id', 'length' => 9, 'prefix' =>'#TKT-']);
@@ -78,14 +77,14 @@ class TicketController extends Controller
      */
     public function show($ticket)
     {
-        $title = 'view ticket';        
+        $title = 'view ticket';
         $ticket = Ticket::where('subject','=',$ticket)->firstOrFail();
         return view('backend.tickets.show',compact(
             'title','ticket'
         ));
     }
 
-    
+
 
     /**
      * Update the specified resource in storage.
