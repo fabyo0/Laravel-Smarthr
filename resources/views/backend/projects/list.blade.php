@@ -31,7 +31,7 @@
 
 
 @section('content')
-    
+
 <div class="row">
     <div class="col-md-12">
         <div class="table-responsive">
@@ -49,7 +49,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach ($projects as $project)  
+                    @foreach ($projects as $project)
                     <tr>
                         <td>
                             <a href="{{route('project.show',$project->name)}}">{{$project->name}}</a>
@@ -77,7 +77,7 @@
                                         <a href="#" data-toggle="tooltip" title="{{$member->firstname.' '.$member->lastname}}"><img  src="{{ !empty($member->avatar) ? asset('storage/employees/'.$member->avatar): asset('assets/img/user.jpg')}}"></a>
                                     </li>
                                 @endforeach
-                                
+
                             </ul>
                         </td>
                         <td>{{date_format(date_create($project->end_date),"D M, Y")}}</td>
@@ -86,7 +86,7 @@
                         </td>
                         <td>
                             <div class="dropdown action-label">
-                                
+
                                 @if ($project->status === 1)
                                 <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-dot-circle-o text-success"></i> Active</a>
                                 @else
@@ -98,10 +98,10 @@
                             <div class="dropdown dropdown-action">
                                 <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                                 <div class="dropdown-menu dropdown-menu-right">
-                                    <a class="dropdown-item editbtn" href="javascript:void(0)" data-id="{{$project->id}}" data-name="{{$project->name}}" 
+                                    <a class="dropdown-item editbtn" href="javascript:void(0)" data-id="{{$project->id}}" data-name="{{$project->name}}"
                                         data-client="{{($project->client_id)}}" data-start="{{$project->start_date}}" data-end="{{$project->end_date}}"
-                                        data-rate="{{$project->rate}}" data-rtype="{{$project->rate_type}}" data-priority="{{$project->priority}}" 
-                                        data-leader="{{$project->leader}}" data-team="{{json_encode($project->team)}}" 
+                                        data-rate="{{$project->rate}}" data-rtype="{{$project->rate_type}}" data-priority="{{$project->priority}}"
+                                        data-leader="{{$project->leader}}" data-team="{{json_encode($project->team)}}"
                                         data-description="{{$project->description}}" data-progress="{{$project->progress}}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
                                     <a class="dropdown-item deletebtn" href="javascript:void(0)" data-id="{{$project->id}}"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                                 </div>

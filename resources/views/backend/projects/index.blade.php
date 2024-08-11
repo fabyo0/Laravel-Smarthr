@@ -39,10 +39,10 @@
                 <div class="dropdown dropdown-action profile-action">
                     <a href="#" class="action-icon dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="material-icons">more_vert</i></a>
                     <div class="dropdown-menu dropdown-menu-right">
-                        <a class="dropdown-item editbtn" href="javascript:void(0)" data-id="{{$project->id}}" data-name="{{$project->name}}" 
+                        <a class="dropdown-item editbtn" href="javascript:void(0)" data-id="{{$project->id}}" data-name="{{$project->name}}"
                             data-client="{{($project->client_id)}}" data-start="{{$project->start_date}}" data-end="{{$project->end_date}}"
-                            data-rate="{{$project->rate}}" data-rtype="{{$project->rate_type}}" data-priority="{{$project->priority}}" 
-                            data-leader="{{$project->leader}}" data-team="{{json_encode($project->team)}}" 
+                            data-rate="{{$project->rate}}" data-rtype="{{$project->rate_type}}" data-priority="{{$project->priority}}"
+                            data-leader="{{$project->leader}}" data-team="{{json_encode($project->team)}}"
                             data-description="{{$project->description}}" data-progress="{{$project->progress}}"><i class="fa fa-pencil m-r-5"></i> Edit</a>
                         <a class="dropdown-item deletebtn" href="javascript:void(0)" data-id="{{$project->id}}"><i class="fa fa-trash-o m-r-5"></i> Delete</a>
                     </div>
@@ -78,7 +78,7 @@
                 </div>
                 <div class="project-members m-b-15">
                     <div>Team :</div>
-                   
+
                     <ul class="team-members">
                         @foreach ($project->team as $team_member)
                         @php
@@ -97,10 +97,10 @@
             </div>
         </div>
     </div>
-    @endforeach            
+    @endforeach
 </div>
 </div>
-<!-- /Page Content -->  
+<!-- /Page Content -->
 
 <x-modals.popup />
 <x-modals.delete route="projects" title="Project" />

@@ -31,7 +31,7 @@
 
 
 @section('content')
-    
+
 <div class="row">
     <div class="col-md-12">
         <div class="table-responsive">
@@ -105,6 +105,7 @@
 <!-- Datatable JS -->
 <script src="{{asset('assets/js/jquery.dataTables.min.js')}}"></script>
 <script src="{{asset('assets/js/dataTables.bootstrap4.min.js')}}"></script>
+
 <script>
     $(document).ready(function(){
         $('.table').on('click','.editbtn',(function(){

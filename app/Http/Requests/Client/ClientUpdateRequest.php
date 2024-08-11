@@ -25,7 +25,7 @@ class ClientUpdateRequest extends FormRequest
             'firstname' => 'required|string|max:255',
             'lastname' => 'required|string|max:255',
             'email' => 'required|email',
-            'phone' => 'nullable|string|max:15',
+            'phone' => 'nullable|string|max:20',
             'company' => 'nullable|string|max:255',
             'avatar' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048',
         ];
